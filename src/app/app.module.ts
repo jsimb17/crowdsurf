@@ -26,6 +26,8 @@ import { MyFriendsComponent } from './my-friends/my-friends.component';
 import { AdminConcertsComponent } from './admin/admin-concerts/admin-concerts.component';
 import { LoginComponent } from './login/login.component';
 import { ConcertFormComponent } from './admin/concert-form/concert-form.component';
+import { ConcertFilterComponent } from './concerts/concert-filter/concert-filter.component';
+import { ConcertCardComponent } from './concert-card/concert-card.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ConcertFormComponent } from './admin/concert-form/concert-form.componen
     MyFriendsComponent,
     AdminConcertsComponent,
     LoginComponent,
-    ConcertFormComponent
+    ConcertFormComponent,
+    ConcertFilterComponent,
+    ConcertCardComponent
   ],
   imports: [
     BrowserModule,

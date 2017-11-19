@@ -89,20 +89,6 @@
     </form>
   </div>
   <div class="col-md-6" id="enterCard">
-    <br><br>
-    <div *ngIf="concert.artist" class="card" style="width: 20rem;">
-      <img class="card-img-top" [src]="concert.imageUrl" *ngIf="concert.imageUrl">
-      <div class="card-body">
-        <h4 class="card-artist">{{ concert.artist }}</h4>
-        <!-- TO DO: fix so displays AM or PM and not in military time -->
-        <p class="card-date">{{ concert.date | date: "MM/dd/yyyy 'at' " }}{{ concert.time }}</p>
-        <!-- TO DO: fix so card preview updates when new genre is selected -->
-        <p class="card-text"><b>Genre: </b>{{ concert.genre }}</p>
-        <p class="card-text"><b>City: </b>{{ concert.city }}</p>
-        <p class="card-text"><b>Venue: </b>{{ concert.venue }}</p>
-        <p class="card-text"><b>Price: </b>{{ concert.ticketPrice | currency:'USD':true }}</p>
-        <p class="card-text"><i>Tickets are {{ concert.ticketAvailability }}</i></p>
-      </div>
-    </div>
+    <concert-card [concert]="concert" [show-actions]="false"></concert-card>
   </div>
 </div>

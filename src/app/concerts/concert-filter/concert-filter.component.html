@@ -1,0 +1,16 @@
+<br>
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action"
+      [class.active]="!genre"
+      routerLink="/"
+      >All Genres</a>
+      <a 
+        *ngFor="let g of genres$ | async"
+        routerLink="/"
+        [queryParams]="{ genre: g.$key }"
+        class="list-group-item list-group-item-action"
+        [class.active]="genre === g.$key"
+        >
+        {{ g.name }}
+      </a>
+    </div>
