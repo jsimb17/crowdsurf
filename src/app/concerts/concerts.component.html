@@ -1,0 +1,39 @@
+
+<!-- Displays genre sidebar on homepage -->
+<div class="row">
+  <div class="col-2" id="genreSidebar">
+    <br>
+    <ul class="list-group">
+      <li *ngFor="let g of genres$ | async" class="list-group-item">
+        {{ g.name }}
+      </li>
+    </ul>
+  </div>
+  <div class="col">
+    <!-- Source code for bootstrap's card: https://getbootstrap.com/docs/4.0/components/card/ -->
+    <!-- Displays concert cards on homepage -->
+    <div class="row">
+      <ng-container *ngFor="let c of concerts$ | async; let i = index">   
+        <div class="col">
+          <br>
+          <div class="card" id="publicConcertCard" style="width: 20rem;">  
+            <img class="card-img-top" [src]="c.imageUrl" alt="Artist Album Cover Image">
+            <div class="card-body">
+              <h4 class="card-title">{{ c.artist }}</h4>
+              <!-- TO DO: fix so displays AM or PM and not in military time -->
+              <p class="card-date">{{ c.date | date: "MM/dd/yyyy 'at' " }}{{ c.time }}</p>
+              <!-- TO DO: fix so card preview updates when new genre is selected -->
+              <p class="card-text"><b>Genre: </b>{{ c.genre }}</p>
+              <p class="card-text"><b>City: </b>{{ c.city }}</p>
+              <p class="card-text"><b>Venue: </b>{{ c.venue }}</p>
+              <p class="card-text"><b>Price: </b>{{ c.ticketPrice | currency:'USD':true }}</p>       
+              <p class="card-text"><i>Tickets are {{ c.ticketAvailability }}</i></p>
+              <a href="#" class="btn btn-primary">Save Concert</a>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="(i+1) % 2 === 0" class="w-100"><br></div>  
+      </ng-container>
+    </div>  
+  </div>
+</div>

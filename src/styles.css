@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+#site-title {
+    color: antiquewhite;
+    margin-left: 1em;
+    font-size: 38px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body { 
+    padding-top: 80px;
+    }
+
+/*TO DO: fix so search bar and dropdown always hug righthand side*/
+#navbarBeforeSearch {
+    margin-left: 25em;
+}
+
+#navbarsExampleDefault {
+    margin: 1em 1em 1em 2em;
+    color: antiquewhite;
+}
+
+#beforeLogin {
+    margin-left: 2em;
+}
+
+#dropdown01 {
+    margin-left: 2em;
+}
+
+#navbarLinks {
+    color: antiquewhite;
+    text-align: right;
+}
+
+
+
+#enterCard {
+    text-align: center;
+}
+
+
+#concertDisplayTable {
+    text-align: center;
+}

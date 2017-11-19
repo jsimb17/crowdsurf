@@ -1,0 +1,95 @@
+<br>
+<p>
+    <a routerLink="/admin/concerts/new" class="btn btn-primary">Add New Concert</a>
+</p>
+<p>
+    <input
+        #query
+        (keyup)="filter(query.value)"
+        type="text" class="form-control" placeholder="Search for Artist">
+</p>
+
+<data-table id="concertDisplayTable"
+    [items]="items"
+    [itemCount]="itemCount"
+    (reload)="reloadItems($event)">
+    <data-table-column
+        [property]="'artist'"
+        [header]="'Artist'"
+        [sortable]="true"
+        [resizable]="true"
+    >
+    </data-table-column>
+    
+    <data-table-column
+        [property]="'genre'"
+        [header]="'Genre'"
+        [sortable]="true"
+        [resizable]="true"
+    >
+    </data-table-column>
+    
+    <data-table-column
+        [property]="'date'"
+        [header]="'Date'"
+        [sortable]="true"
+        [resizable]="true"
+    >
+        <ng-template #dataTableCell let-item="item">
+            {{ item.date | date: 'MM/dd/yyyy' }}
+        </ng-template>
+    </data-table-column>
+    
+    <data-table-column
+        [property]="'time'"
+        [header]="'Time'"
+        [sortable]="true"
+        [resizable]="true"
+    >
+    <!-- TO DO: fix so not in military time -->
+    </data-table-column>
+    
+    <data-table-column
+        [property]="'city'"
+        [header]="'City'"
+        [sortable]="true"
+        [resizable]="true"
+    >
+    </data-table-column>
+    
+    <data-table-column
+        [property]="'venue'"
+        [header]="'Venue'"
+        [sortable]="true"
+        [resizable]="true"
+    >
+    </data-table-column>
+    
+    <data-table-column
+        [property]="'ticketPrice'"
+        [header]="'Ticket Price'"
+        [sortable]="true"
+        [resizable]="true"
+    >   
+        <ng-template #dataTableCell let-item="item">
+            {{ item.ticketPrice | currency:'USD':true }}
+        </ng-template>
+    </data-table-column>
+    
+    <data-table-column
+        [property]="'ticketAvailability'"
+        [header]="'Ticket Availability'"
+        [sortable]="true"
+        [resizable]="true"
+    >
+    </data-table-column>
+    
+    <data-table-column
+        [property]="'$key'"
+    >  
+        <ng-template #dataTableCell let-item="item">
+            <a [routerLink]="['/admin/concerts/', item.$key]">Edit</a>
+        </ng-template>
+    </data-table-column> 
+              
+</data-table>
