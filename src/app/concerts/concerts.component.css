@@ -1,7 +1,12 @@
+#homeTitle {
+    text-align: left;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
 #publicConcertCard {
     text-align: center;
 }
 
 #genreSidebar {
-    margin-right: 3em;
+    margin-right: 4em;
 }

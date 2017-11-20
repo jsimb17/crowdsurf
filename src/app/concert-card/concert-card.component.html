@@ -1,5 +1,5 @@
 <br>
-<div *ngIf="concert.artist" class="card" id="publicConcertCard" style="width: 20rem;">  
+<div *ngIf="concert.artist" class="card" id="publicConcertCard" style="width: 20rem;">
   <img *ngIf="concert.imageUrl" class="card-img-top" [src]="concert.imageUrl" alt="{{concert.genre}}">
   <div class="card-body">
     <h4 class="card-title">{{ concert.artist }}</h4>
@@ -11,6 +11,28 @@
     <p class="card-text"><b>Venue: </b>{{ concert.venue }}</p>
     <p class="card-text"><b>Price: </b>{{ concert.ticketPrice | currency:'USD':true }}</p>       
     <p class="card-text"><i>Tickets are {{ concert.ticketAvailability }}</i></p>
-    <a *ngIf="showActions" href="#" class="btn btn-primary">Save Concert</a>
+  </div>
+  <div *ngIf="showActions" class="card-footer">
+     <button
+        *ngIf="getQuantity() === 0; else updateQuantity"
+        (click)="addToSavedConcerts()"  
+        class="btn btn-secondary btn-block">Save Concert</button>
+     <ng-template #updateQuantity>
+       <div class="row no-gutters">
+         <div class="col-2">
+           <button 
+              (click)="removeFromSavedConcerts()"
+              class="btn btn-secondary btn-block">-</button>
+         </div>
+         <div class="col text-center">
+           {{ getQuantity() }} in Saved Concerts
+         </div>
+         <div class="col-2">
+           <button 
+              (click)="addToSavedConcerts()"
+            class="btn btn-secondary btn-block">+</button>
+         </div>
+       </div>
+     </ng-template>
   </div>
 </div>

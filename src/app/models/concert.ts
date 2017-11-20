@@ -1,5 +1,6 @@
 
 export interface Concert {
+    $key: string;
     artist: string;
     genre: string;
     date: Date;

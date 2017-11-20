@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Concert } from './../models/concert';
+import { SavedConcertsService } from './../saved-concerts.service';
 
 @Component({
   selector: 'concert-card',
@@ -9,6 +10,23 @@ import { Concert } from './../models/concert';
 export class ConcertCardComponent {
   @Input('concert') concert: Concert;
   @Input('show-actions') showActions = true;
+  @Input('saved-concerts') savedConcerts;
 
-  constructor() { }
+  constructor(private savedConcertsService: SavedConcertsService) { }
+  
+  addToSavedConcerts() {
+    this.savedConcertsService.addToSavedConcerts(this.concert);  
+  }
+  
+  removeFromSavedConcerts(){
+    this.savedConcertsService.removeFromSavedConcerts(this.concert);
+  }
+  
+  getQuantity() {
+    if (!this.savedConcerts) return 0;
+    
+    let item = this.savedConcerts.items[this.concert.$key];
+    return item ? item.quantity: 0;
+  }
 }
+

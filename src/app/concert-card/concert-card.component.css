@@ -1,0 +1,11 @@
+#homeTitle {
+    text-align: center;
+}
+
+#publicConcertCard {
+    text-align: center;
+}
+
+.card-footer button {
+    cursor: pointer;
+}

@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { DataTableModule } from 'angular-4-data-table';
+import { SavedConcertsService } from './saved-concerts.service';
 
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
@@ -84,7 +85,8 @@ import { ConcertCardComponent } from './concert-card/concert-card.component';
     AdminAuthGuard,
     UserService,
     GenreService,
-    ConcertService
+    ConcertService,
+    SavedConcertsService
   ],
   bootstrap: [AppComponent]
 })

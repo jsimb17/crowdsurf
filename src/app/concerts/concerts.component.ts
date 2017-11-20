@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ConcertService } from './../concert.service';
+import { SavedConcertsService } from './../saved-concerts.service';
 import { ActivatedRoute } from '@angular/router';
 import { Concert } from './../models/concert';
+import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -9,15 +11,17 @@ import 'rxjs/add/operator/switchMap';
   templateUrl: './concerts.component.html',
   styleUrls: ['./concerts.component.css']
 })
-
-export class ConcertsComponent {
+export class ConcertsComponent implements OnInit, OnDestroy {
   concerts: Concert[] = [];
   filteredConcerts: Concert[] = [];
   genre: string;
+  savedConcerts: any;
+  subscription: Subscription;
   
   constructor(
     route: ActivatedRoute,
-    concertService: ConcertService
+    concertService: ConcertService,
+    private savedConcertsService: SavedConcertsService
   ) {  
       
     concertService
@@ -34,4 +38,14 @@ export class ConcertsComponent {
           this.concerts;
       });
    }  
+   
+   async ngOnInit() {
+     this.subscription = (await this.savedConcertsService.getSavedConcerts())
+     .subscribe(savedConcerts => this.savedConcerts = savedConcerts); 
+  }
+  
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+  
 }

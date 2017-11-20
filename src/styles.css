@@ -14,7 +14,7 @@ body {
 
 /*TO DO: fix so search bar and dropdown always hug righthand side*/
 #navbarBeforeSearch {
-    margin-left: 25em;
+    margin-left: 15em;
 }
 
 #navbarsExampleDefault {
@@ -33,6 +33,7 @@ body {
 #navbarLinks {
     color: antiquewhite;
     text-align: right;
+    border-right: 1px solid antiquewhite;
 }
 
 
