@@ -1,11 +1,12 @@
 import { Concert } from './concert';
 import { SavedConcertsItem } from './saved-concerts-item';
 
-
 export class SavedConcerts {
     items: SavedConcertsItem[] = [];
     
     constructor(public itemsMap: { [concertId: string]: SavedConcertsItem } ) {
+      this.itemsMap = itemsMap || {};
+      
       for (let concertId in itemsMap) {
         let item = itemsMap[concertId];
         this.items.push(new SavedConcertsItem(item.concert, item.quantity));
@@ -13,7 +14,6 @@ export class SavedConcerts {
     }
     
     getQuantity(concert: Concert) {
-        console.log("concert", concert);
         let item = this.itemsMap[concert.$key];
         return item ? item.quantity: 0;
     }

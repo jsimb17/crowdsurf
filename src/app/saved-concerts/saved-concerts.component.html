@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of savedConcerts.items">
+      <tr *ngFor="let item of savedConcerts.items" >
         <td>
           {{ item.concert.artist }}
         </td>
@@ -40,13 +40,16 @@
           {{ item.concert.venue }}
         </td>
         <td>
-          {{ item.concert.ticketAvailability }}
+          {{ item.concert.ticketPrice }}
         </td>
         <td>
-          {{ item.totalPrice | currency:'USD':true }}
+          {{ item.concert.ticketAvailability }}
         </td>
         <!-- <td>
-          <concert-quantity [concert]="item.concert" [saved-concerts]="savedConcerts>
+          {{ item.totalPrice | currency:'USD':true }}
+        </td>
+        <td>
+          <concert-quantity [concert]="item" [saved-concerts]="savedConcerts>
             
           </concert-quantity>
         </td> -->

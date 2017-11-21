@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable'
+import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { Concert } from './models/concert';
@@ -50,7 +50,6 @@ export class SavedConcertsService {
     //TO DO: remove quantity detail from saved concerts
     item$.take(1).subscribe(item => {
       item$.update({ concert: concert, quantity: (item.quantity || 0) + change });
-    });
-    
+    }); 
   }
 }
