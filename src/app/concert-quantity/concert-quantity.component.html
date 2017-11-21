@@ -1,0 +1,15 @@
+<div class="row no-gutters">
+  <div class="col-2">
+    <button 
+      (click)="removeFromSavedConcerts()"
+      class="btn btn-secondary btn-block">-</button>
+  </div>
+  <div class="col text-center">
+    {{ savedConcerts.getQuantity(concert) }} in Saved Concerts
+  </div>
+  <div class="col-2">
+    <button 
+      (click)="addToSavedConcerts()"
+      class="btn btn-secondary btn-block">+</button>
+   </div>
+</div>

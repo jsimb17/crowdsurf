@@ -1,3 +1,4 @@
+import { SavedConcertsService } from './../saved-concerts.service'
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./saved-concerts.component.css']
 })
 export class SavedConcertsComponent implements OnInit {
+  savedConcerts$;
 
-  constructor() { }
+  constructor(private savedConcertsService: SavedConcertsService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.savedConcerts$ = await this.savedConcertsService.getSavedConcerts();
   }
 
 }

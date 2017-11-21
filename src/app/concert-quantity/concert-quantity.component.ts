@@ -1,22 +1,24 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Concert } from './../models/concert';
 import { SavedConcertsService } from './../saved-concerts.service';
-import { SavedConcerts } from './../models/saved-concerts';
 
 @Component({
-  selector: 'concert-card',
-  templateUrl: './concert-card.component.html',
-  styleUrls: ['./concert-card.component.css']
+  selector: 'concert-quantity',
+  templateUrl: './concert-quantity.component.html',
+  styleUrls: ['./concert-quantity.component.css']
 })
-export class ConcertCardComponent {
+export class ConcertQuantityComponent {
   @Input('concert') concert: Concert;
-  @Input('show-actions') showActions = true;
-  @Input('saved-concerts') savedConcerts: SavedConcerts;
+  @Input('saved-concerts') savedConcerts;
 
   constructor(private savedConcertsService: SavedConcertsService) { }
   
   addToSavedConcerts() {
     this.savedConcertsService.addToSavedConcerts(this.concert);  
   }
+  
+  removeFromSavedConcerts(){
+    this.savedConcertsService.removeFromSavedConcerts(this.concert);
+  }
+  
 }
-

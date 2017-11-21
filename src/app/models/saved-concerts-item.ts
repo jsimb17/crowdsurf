@@ -1,6 +1,7 @@
 import { Concert } from './concert';
 
-export interface SavedConcertsItem {
-    concert: Concert;
-    quantity: number;
+export class SavedConcertsItem {
+    constructor(public concert: Concert, public quantity: number) {}
+    
+    get totalPrice() { return this.concert.ticketPrice * this.quantity; }
 }

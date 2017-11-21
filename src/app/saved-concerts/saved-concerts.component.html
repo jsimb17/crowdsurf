@@ -1,3 +1,63 @@
+<br>
+<h1>Saved Concerts</h1>
+<ng-container *ngIf="savedConcerts$ | async as savedConcerts">
 <p>
-  saved-concerts works!
+  <i>You have {{ savedConcerts.totalItemsCount }} concerts saved.</i>
 </p>
+  <table id="savedConcertsTable">
+    <thead>
+      <tr>
+        <th>Concert</th>
+        <th>Genre</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>City</th>
+        <th>Venue</th>
+        <th>Ticket Price</th>
+        <th>Ticket Availability</th>
+        <!-- <th>Price</th>
+        <th>Quantity</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of savedConcerts.items">
+        <td>
+          {{ item.concert.artist }}
+        </td>
+        <td>
+          {{ item.concert.genre }}
+        </td>
+        <td>
+          {{ item.concert.date | date: "MM/dd/yyyy" }}
+        </td>
+        <td>
+          {{ item.concert.time }}
+        </td>
+        <td>
+          {{ item.concert.city }}
+        </td>
+        <td>
+          {{ item.concert.venue }}
+        </td>
+        <td>
+          {{ item.concert.ticketAvailability }}
+        </td>
+        <td>
+          {{ item.totalPrice | currency:'USD':true }}
+        </td>
+        <!-- <td>
+          <concert-quantity [concert]="item.concert" [saved-concerts]="savedConcerts>
+            
+          </concert-quantity>
+        </td> -->
+      </tr>
+     </tbody>
+     <!-- <tfoot>
+       <tr>
+         <td></td>
+         <td></td>
+         <td>{{ savedConcerts.totalPrice }}</td>
+       </tr>
+     </tfoot> -->
+   </table>
+</ng-container>

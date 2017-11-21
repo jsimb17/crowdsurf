@@ -2,7 +2,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 #site-title {
-    color: antiquewhite;
+    color: #F2F2F2;
     margin-left: 1em;
     font-size: 38px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -10,6 +10,7 @@
 
 body { 
     padding-top: 80px;
+    background: #F2F2F2;
     }
 
 /*TO DO: fix so search bar and dropdown always hug righthand side*/
@@ -19,7 +20,7 @@ body {
 
 #navbarsExampleDefault {
     margin: 1em 1em 1em 2em;
-    color: antiquewhite;
+    color: #F2F2F2;
 }
 
 #beforeLogin {
@@ -31,9 +32,9 @@ body {
 }
 
 #navbarLinks {
-    color: antiquewhite;
+    color: #F2F2F2;
     text-align: right;
-    border-right: 1px solid antiquewhite;
+    border-right: 1px solid #F2F2F2;
 }
 
 

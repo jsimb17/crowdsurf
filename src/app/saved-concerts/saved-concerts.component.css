@@ -1,0 +1,29 @@
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#savedConcertsTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+#savedConcertsTable td, #savedConcertsTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#savedConcertsTable tr:nth-child(even){background-color: #D8D8D8;}
+
+#savedConcertsTable tr:hover {background-color: #FFFFFF;}
+
+#savedConcertsTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #6E6E6E;
+    color: white;
+    text-decoration: underline;
+}
