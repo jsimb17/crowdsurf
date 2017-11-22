@@ -30,6 +30,8 @@ import { ConcertFormComponent } from './admin/concert-form/concert-form.componen
 import { ConcertFilterComponent } from './concerts/concert-filter/concert-filter.component';
 import { ConcertCardComponent } from './concert-card/concert-card.component';
 import { ConcertQuantityComponent } from './concert-quantity/concert-quantity.component';
+import { ReviewComponent } from './review/review.component';
+import { ReviewFormComponent } from './review-form/review-form.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { ConcertQuantityComponent } from './concert-quantity/concert-quantity.co
     ConcertFormComponent,
     ConcertFilterComponent,
     ConcertCardComponent,
-    ConcertQuantityComponent
+    ConcertQuantityComponent,
+    ReviewComponent,
+    ReviewFormComponent
   ],
   imports: [
     BrowserModule,
@@ -57,13 +61,45 @@ import { ConcertQuantityComponent } from './concert-quantity/concert-quantity.co
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      { path: '', component: ConcertsComponent },
-      { path: 'concerts', component: ConcertsComponent },
-      { path: 'saved-concerts', component: SavedConcertsComponent, canActivate: [AuthGuard] },
-      { path: 'my-friends', component: MyFriendsComponent, canActivate: [AuthGuard] },
-      { path: 'save-success', component: SaveSuccessComponent, canActivate: [AuthGuard] },
-      { path: 'login', component: LoginComponent },
+      { 
+        path: '',
+        component: ConcertsComponent 
+      },
+      { 
+        path: 'concerts', 
+        component: ConcertsComponent 
+      },
+      { 
+        path: 'saved-concerts', 
+        component: SavedConcertsComponent, 
+        canActivate: [AuthGuard] 
+      },
+      { 
+        path: 'my-friends', 
+        component: MyFriendsComponent, 
+        canActivate: [AuthGuard] 
+      },
+      { 
+        path: 'save-success', 
+        component: SaveSuccessComponent, 
+        canActivate: [AuthGuard] 
+      },
+      { 
+        path: 'login', 
+        component: LoginComponent 
+      },
+      {
+        path: 'review',
+        component: ReviewComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'review/new',
+        component: ReviewFormComponent,
+        canActivate: [AuthGuard]
+      },
       
+      //admin
       { 
         path: 'admin/concerts',
         component: AdminConcertsComponent,

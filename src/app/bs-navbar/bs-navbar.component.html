@@ -12,11 +12,14 @@
         <li class="nav-item">
           <a class="nav-link" id="navbarLinks" routerLink="/saved-concerts">
           Saved Concerts
-          <span class="badge badge-warning badge-pill" *ngIf="savedConcerts$ | async as savedConcerts">
+          <span class="badge badge-warning badge-pill" id="countBubble" *ngIf="savedConcerts$ | async as savedConcerts">
             {{ savedConcerts.totalItemsCount }}
           </span>
           </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" id="navbarLinks" routerLink="/review">Reviews</a>
+          </li>
         <ng-template #anonymousUser>
           <li class="nav-item">
             <a class="nav-link" id="beforeLogin" routerLink="/login">Login</a>
@@ -40,10 +43,25 @@
               <a class="dropdown-item" routerLink="/saved-concerts">Saved Concerts</a>
               <a class="dropdown-item" routerLink="/my-friends">Friends List</a>
               <a class="dropdown-item" href="#">Settings</a>
-              <a class="dropdown-item" (click)="logout()">Log Out</a>
-            </div>
+              <a class="dropdown-item" id="logoutClick" (click)="logout()">Log Out</a>
+            </div>     
           </li>
         </ul>
+        <!-- For Shopping Cart button -->
+        <ul class="navbar-nav mr-auto">
+          <li *ngIf="appUser; else " class="nav-item"> 
+            <a class="nav-link" href="#"> 
+              <img src="http://www.artbynaturegardencenter.com/v/vspfiles/templates/ABN/images/template/shopping_cart.png" 
+              style="width:32px;height:32px;border:0;">   
+                <!--
+                  MODIFY TO COUNT ITEMS IN SHOPPING CART
+                <span class="badge badge-warning badge-pill" *ngIf="savedConcerts$ | async as savedConcerts">
+                  {{ savedConcerts.totalItemsCount }}
+                </span>
+                -->
+             </a>
+          </li>
+        </ul>     
     </div>
     
 </nav>

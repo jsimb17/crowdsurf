@@ -8,5 +8,6 @@ export interface Concert {
     city: string;
     venue: string;
     ticketPrice: number;
+    ticketAvailability: string;
     imageUrl: string;
 }

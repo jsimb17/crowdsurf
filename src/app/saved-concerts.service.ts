@@ -49,7 +49,12 @@ export class SavedConcertsService {
     let item$ = this.getItem(savedConcertsId, concert.$key);
     //TO DO: remove quantity detail from saved concerts
     item$.take(1).subscribe(item => {
-      item$.update({ concert: concert, quantity: (item.quantity || 0) + change });
+      let quantity = (item.quantity || 0) + change;
+      if (quantity === 0) item$.remove();    
+      else item$.update({ 
+        concert: concert, 
+        quantity: quantity
+      });
     }); 
   }
 }

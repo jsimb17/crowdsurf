@@ -7,6 +7,7 @@
   <table id="savedConcertsTable">
     <thead>
       <tr>
+        <th></th>
         <th>Concert</th>
         <th>Genre</th>
         <th>Date</th>
@@ -21,6 +22,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of savedConcerts.items" >
+        <td>
+          <div [style.backgroundImage]="'url(' + item.concert.imageUrl + ')'" id="thumbnail"></div>
+        </td>
         <td>
           {{ item.concert.artist }}
         </td>
@@ -40,7 +44,7 @@
           {{ item.concert.venue }}
         </td>
         <td>
-          {{ item.concert.ticketPrice }}
+          {{ item.concert.ticketPrice | currency:'USD' :true }}
         </td>
         <td>
           {{ item.concert.ticketAvailability }}
@@ -63,4 +67,9 @@
        </tr>
      </tfoot> -->
    </table>
+   <br><br>
+   <button
+      (click)="clearSavedConcerts()"
+      class="btn btn-danger btn-sm">Clear Saved Concerts
+   </button>
 </ng-container>
