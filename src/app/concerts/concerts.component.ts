@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ConcertService } from './../concert.service';
 import { SavedConcertsService } from './../saved-concerts.service';
+import { ShoppingCartService } from './../shopping-cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { Concert } from './../models/concert';
 import { Subscription } from 'rxjs/Subscription';
@@ -17,18 +18,20 @@ export class ConcertsComponent implements OnInit, OnDestroy {
   genre: string;
   savedConcerts: any;
   subscription: Subscription;
+  cart: any;
   
   constructor(
     route: ActivatedRoute,
     concertService: ConcertService,
-    private savedConcertsService: SavedConcertsService
+    private savedConcertsService: SavedConcertsService,
+    private shoppingCartService: ShoppingCartService
   ) {  
-      
+     
     concertService
       .getAll()
       .switchMap(concerts => {
-      this.concerts = concerts;
-      return route.queryParamMap;
+        this.concerts = concerts;
+        return route.queryParamMap;
       })   
       .subscribe(params => {
         this.genre = params.get('genre');
@@ -41,7 +44,9 @@ export class ConcertsComponent implements OnInit, OnDestroy {
    
    async ngOnInit() {
      this.subscription = (await this.savedConcertsService.getSavedConcerts())
-     .subscribe(savedConcerts => this.savedConcerts = savedConcerts); 
+      .subscribe(savedConcerts => this.savedConcerts = savedConcerts);
+     this.subscription = (await this.shoppingCartService.getCart())
+      .subscribe(cart => this.cart = cart);
   }
   
   ngOnDestroy() {

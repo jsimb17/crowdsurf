@@ -1,15 +1,18 @@
 <div class="row no-gutters">
-  <div class="col-2">
+  <div class="col text-center">
+    <b><u>In Saved Concerts</u></b>
+  </div>
+  <br>
+  <div>
     <button 
       (click)="removeFromSavedConcerts()"
-      class="btn btn-secondary btn-block">-</button>
+      class="btn btn-secondary btn-block" id="removeButton">Remove</button>
   </div>
-  <div class="col text-center">
-    {{ savedConcerts.getQuantity(concert) }} in Saved Concerts
-  </div>
+  <!--
   <div class="col-2">
     <button 
       (click)="addToSavedConcerts()"
       class="btn btn-secondary btn-block">+</button>
    </div>
+   -->
 </div>

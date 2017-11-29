@@ -27,7 +27,10 @@
         </ng-template>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" id="navbarBeforeSearch" type="text" placeholder="Search" aria-label="Search">
+          <input
+            #query
+            (keyup)="filter(query.value)"
+            type="text" class="form-control" placeholder="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       <ul class="navbar-nav mr-auto">
@@ -50,16 +53,13 @@
         <!-- For Shopping Cart button -->
         <ul class="navbar-nav mr-auto">
           <li *ngIf="appUser; else " class="nav-item"> 
-            <a class="nav-link" href="#"> 
+            <a class="nav-link" routerLink="/shopping-cart"> 
               <img src="http://www.artbynaturegardencenter.com/v/vspfiles/templates/ABN/images/template/shopping_cart.png" 
-              style="width:32px;height:32px;border:0;">   
-                <!--
-                  MODIFY TO COUNT ITEMS IN SHOPPING CART
-                <span class="badge badge-warning badge-pill" *ngIf="savedConcerts$ | async as savedConcerts">
-                  {{ savedConcerts.totalItemsCount }}
-                </span>
-                -->
-             </a>
+              style="width:32px;height:32px;border:0;">
+              <span class="badge badge-warning badge-pill" id="countBubble" *ngIf="cart$ | async as cart" >
+                {{ cart.totalItemsCount }}
+              </span>
+            </a>
           </li>
         </ul>     
     </div>

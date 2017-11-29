@@ -12,7 +12,7 @@
     <div class="row">
       <ng-container *ngFor="let c of filteredConcerts; let i = index">   
         <div class="col">
-          <concert-card [concert]="c" [saved-concerts]="savedConcerts"></concert-card>
+          <concert-card [concert]="c" [saved-concerts]="savedConcerts" [shopping-cart]="cart"></concert-card>
         </div>
         <div *ngIf="(i+1) % 2 === 0" class="w-100"><br></div>  
       </ng-container>

@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { DataTableModule } from 'angular-4-data-table';
 import { SavedConcertsService } from './saved-concerts.service';
+import { ReviewService } from './review.service';
+import { ShoppingCartService } from './shopping-cart.service';
 
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
@@ -32,6 +34,7 @@ import { ConcertCardComponent } from './concert-card/concert-card.component';
 import { ConcertQuantityComponent } from './concert-quantity/concert-quantity.component';
 import { ReviewComponent } from './review/review.component';
 import { ReviewFormComponent } from './review-form/review-form.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,8 @@ import { ReviewFormComponent } from './review-form/review-form.component';
     ConcertCardComponent,
     ConcertQuantityComponent,
     ReviewComponent,
-    ReviewFormComponent
+    ReviewFormComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
@@ -98,6 +102,11 @@ import { ReviewFormComponent } from './review-form/review-form.component';
         component: ReviewFormComponent,
         canActivate: [AuthGuard]
       },
+      {
+        path: 'shopping-cart',
+        component: ShoppingCartComponent,
+        canActivate: [AuthGuard]
+      },
       
       //admin
       { 
@@ -124,7 +133,9 @@ import { ReviewFormComponent } from './review-form/review-form.component';
     UserService,
     GenreService,
     ConcertService,
-    SavedConcertsService
+    SavedConcertsService,
+    ReviewService,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent]
 })

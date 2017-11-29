@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReviewService } from './../review.service';
 
 @Component({
   selector: 'app-review-form',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private reviewService: ReviewService) { }
+  
+  save(review) {
+    this.reviewService.create(review);
+  }
 
   ngOnInit() {
   }

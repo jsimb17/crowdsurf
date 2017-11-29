@@ -1,0 +1,81 @@
+<br>
+<h1>Shopping Cart</h1>
+<ng-container *ngIf="cart$ | async as cart">
+<p>
+  <i>You have {{ cart.totalItemsCount }} concerts in your shopping cart.</i>
+</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Concert</th>
+        <th>Genre</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>City</th>
+        <th>Venue</th>
+        <th>Ticket Price</th>
+        <th>Ticket Availability</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cart.items" >
+        <td>
+          <!-- <div [style.backgroundImage]="'url(' + item.concert.imageUrl + ')'" id="thumbnail"></div> -->
+        </td>
+        <td>
+          {{ item.concert.artist }}
+        </td>
+        <td>
+          {{ item.concert.genre }}
+        </td>
+        <td>
+          {{ item.concert.date | date: "MM/dd/yyyy" }}
+        </td>
+        <td>
+          {{ item.concert.time }}
+        </td>
+        <td>
+          {{ item.concert.city }}
+        </td>
+        <td>
+          {{ item.concert.venue }}
+        </td>
+        <td>
+          {{ item.concert.ticketPrice | currency:'USD' :true }}
+        </td>
+        <td>
+          {{ item.concert.ticketAvailability }}
+        </td>
+        <td>
+          {{ item.quantity }}
+        </td>
+        <td>
+          {{ item.totalPrice | currency:'USD':true }}
+        </td>     
+      </tr>
+     </tbody>
+     <tfoot>
+       <tr>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td>{{ cart.totalPrice | currency:'USD':true }}</td>
+       </tr>
+     </tfoot>
+   </table>
+   <br><br>
+   <button
+      (click)="clearCart()"
+      class="btn btn-danger btn-sm">Clear Shopping Cart
+   </button>
+</ng-container>
